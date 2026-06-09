@@ -1,4 +1,4 @@
-""import requests
+import requests
 import time
 from typing import List, Dict, Any
 from config import MARITACA_API_KEY, MARITAVA_BASE_URL, ANALYSIS_CONFIG, DEFAULT_HEADERS
@@ -111,4 +111,3 @@ class TrendAnalyzer:
             kw_list = [k.strip() for k in matches[0].split(",")]
             return kw_list[:10]
         return self.keywords[:10]
-""
