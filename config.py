@@ -6,6 +6,10 @@ load_dotenv()
 # Maritaca AI
 MARITACA_API_KEY = os.getenv("MARITACA_API_KEY")
 MARITAVA_BASE_URL = os.getenv("MARITAVA_BASE_URL", "https://api.maritaca.ai")
+ "model": "sabiazinho-4",  # Modelo padrão (você pode mudar conforme disponível)
+    "max_tokens": 2000,
+    "temperature": 0.7,
+    "timeout": 30
 
 # Plataformas de busca
 SEARCH_PLATFORMS = [
