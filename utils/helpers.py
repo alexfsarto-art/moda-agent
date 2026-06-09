@@ -1,4 +1,4 @@
-""import re
+import re
 import numpy as np
 from typing import Dict, Any
 
@@ -83,4 +83,3 @@ def format_currency(value: float) -> str:
         return f"R$ {s}"
     except:
         return f"R$ {value}"
-""
