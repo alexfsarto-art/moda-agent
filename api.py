@@ -10,7 +10,7 @@ def run_agent():
     # Roda o agente como subprocesso
     try:
         result = subprocess.run(
-            ["python", "moda_agent/main.py"],
+            ["python", "moda-agent/main.py"],
             capture_output=True,
             text=True,
             timeout=120,  # segundos
