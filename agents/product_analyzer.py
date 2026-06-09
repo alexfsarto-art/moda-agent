@@ -1,4 +1,4 @@
-""import pandas as pd
+import pandas as pd
 import numpy as np
 from typing import Dict, List, Any
 from config import ANALYSIS_CONFIG
@@ -126,4 +126,3 @@ class ProductAnalyzer:
             insights.append("Nenhum produto suficiente para gerar insights. Tente ampliar as palavras-chave ou plataformas.")
 
         return insights
-""
