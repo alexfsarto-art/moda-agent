@@ -1,4 +1,4 @@
-""import requests
+import requests
 from bs4 import BeautifulSoup
 import time
 import re
@@ -298,4 +298,3 @@ class AmazonScraper:
             if k in title_lower:
                 return v
         return "Moda"
-""
