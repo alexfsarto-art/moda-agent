@@ -1,52 +1,77 @@
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
-
-# Maritaca AI
-MARITACA_API_KEY = os.getenv("MARITACA_API_KEY")
-MARITAVA_BASE_URL = os.getenv("MARITAVA_BASE_URL", "https://api.maritaca.ai")
- "model": "sabiazinho-4",  # Modelo padrão (você pode mudar conforme disponível)
+# ========== CONFIGURAÇÕES MARITACA AI ==========
+MARITACA_CONFIG = {
+    "api_key": os.environ.get("MARITACA_API_KEY", ""),
+    "base_url": os.environ.get("MARITACA_BASE_URL", "https://chat.maritaca.ai/api"),
+    "model": "sabiazinho-4", 
     "max_tokens": 2000,
     "temperature": 0.7,
     "timeout": 30
-
-# Plataformas de busca
-SEARCH_PLATFORMS = [
-    "google_trends",
-    "instagram",
-    "mercado_livre",
-    "shopee",
-    "amazon",
-    "magalu"
-]
-
-# Configurações de análise
-ANALYSIS_CONFIG = {
-    "trend_window_days": 30,
-    "min_sales_threshold": 50,
-    "price_competitiveness_threshold": 0.8,
-    "top_products_limit": 20,
-    "trend_keywords": [
-        "moda primavera verão",
-        "tendências 2026",
-        "roupas femininas mais vendidas",
-        "calçados tendência",
-        "acessórios moda",
-        "streetwear Brasil",
-        "moda sustentável",
-        "outlet online"
-    ]
 }
 
-# Caminhos
-DATA_RAW_DIR = "data/raw"
-REPORTS_DIR = "data/reports"
+# Configuração alternativa - OpenAI (se quiser usar como fallback)
+OPENAI_CONFIG = {
+    "api_key": os.environ.get("OPENAI_API_KEY", ""),
+    "model": "gpt-3.5-turbo",
+    "max_tokens": 2000,
+    "temperature": 0.7
+}
 
-# Headers padrão para scraping
-DEFAULT_HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                  "AppleWebKit/537.36 (KHTML, like Gecko) "
-                  "Chrome/120.0.0.0 Safari/537.36",
-    "Accept-Language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
+# Configuração alternativa - Google Gemini
+GEMINI_CONFIG = {
+    "api_key": os.environ.get("GEMINI_API_KEY", ""),
+    "model": "gemini-pro",
+    "temperature": 0.7
+}
+
+# Configuração para cache de respostas da IA
+AI_CACHE_CONFIG = {
+    "enabled": True,
+    "ttl_seconds": 3600,  # 1 hora
+    "max_size": 100  # Máximo de respostas em cache
+}
+
+# Prompts padrão para análise de tendências
+DEFAULT_PROMPTS = {
+    "trend_analysis": """
+    Você é um especialista em tendências de moda. Analise os seguintes dados:
+    {data}
+    
+    Por favor, forneça:
+    1. Principais tendências identificadas
+    2. Score de tendência (0-100) para cada item
+    3. Recomendações para varejistas
+    4. Projeção para próximos 3 meses
+    """,
+    
+    "product_ranking": """
+    Com base nos seguintes produtos:
+    {products}
+    
+    Ranqueie os produtos considerando:
+    - Potencial de venda
+    - Alinhamento com tendências
+    - Competitividade de preço
+    - Qualidade percebida
+    
+    Retorne um ranking ordenado com scores.
+    """,
+    
+    "insights_generation": """
+    Dados analisados:
+    {analysis_data}
+    
+    Gere insights acionáveis para:
+    - Estratégia de precificação
+    - Mix de produtos
+    - Oportunidades de mercado
+    """
+}
+
+# Configuração de rate limiting para APIs
+RATE_LIMIT_CONFIG = {
+    "maritaca": {"calls_per_minute": 60, "calls_per_day": 1000},
+    "openai": {"calls_per_minute": 60, "calls_per_day": 1000},
+    "gemini": {"calls_per_minute": 60, "calls_per_day": 1000}
 }
