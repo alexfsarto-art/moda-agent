@@ -1,4 +1,4 @@
-""import requests
+import requests
 import time
 from typing import List, Dict, Any
 from config import DEFAULT_HEADERS, ANALYSIS_CONFIG
@@ -58,4 +58,3 @@ class PriceScraper:
                 seen.add(hash_key)
                 unique.append(p)
         return unique
-""
