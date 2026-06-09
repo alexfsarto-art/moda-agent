@@ -5,21 +5,19 @@ Agente Python que busca tendências de moda, coleta produtos de e-commerce e ger
 ## 📦 Estrutura
 ```
 moda-agent/
-├── main.py                # Entrypoint — executa o fluxo completo
-├── .env                   # Variáveis de ambiente (API keys)
-├── requirements.txt       # Dependências
-├── config.py              # Configurações centralizadas
-├── agents/                # Agentes de negócio
-│   ├── trend_analyzer.py     # Busca tendências (Google Trends + IA)
-│   ├── price_scraper.py      # Coleta produtos/preços (ML, Shopee, Magalu, Amazon)
-│   ├── product_analyzer.py   # Ranqueia produtos e gera insights
-│   └── report_generator.py   # Gera relatório Excel com gráficos
-├── data/
-│   ├── raw/               # Dados brutos coletados
-│   └── reports/           # Relatórios gerados
-└── utils/
-    ├── scrapers.py        # Scrapers reutilizáveis
-    └── helpers.py          # Funções utilitárias
+├── api.py              # API Flask
+├── main.py             # Entrypoint principal
+├── config.py           # Configurações (com as novas adições)
+├── ai_client.py        # ✅ NOVO - Cliente de IA
+├── agents/
+│   ├── trend_analyzer.py
+│   ├── price_scraper.py
+│   ├── product_analyzer.py
+│   └── report_generator.py
+├── utils/
+│   ├── scrapers.py
+│   └── helpers.py
+└── requirements.txt
 ```
 
 ## 🚀 Como usar
