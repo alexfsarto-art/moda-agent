@@ -1,4 +1,4 @@
-""import pandas as pd
+import pandas as pd
 import matplotlib.pyplot as plt
 import os
 from openpyxl import Workbook
@@ -136,4 +136,3 @@ class ReportGenerator:
 
     def _format_currency(self, value: float) -> str:
         return f"R$ {value:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
-""
