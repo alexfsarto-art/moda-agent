@@ -268,3 +268,11 @@ if __name__ == '__main__':
         debug=False,  # Importante: False em produção
         threaded=True
     )
+#=================== TESTE CONEXÃO ==============
+@app.route('/debug/env')
+def debug_env():
+    """Verifica se as variáveis estão configuradas (remova em produção!)"""
+    return jsonify({
+        "MARITACA_API_KEY_SET": bool(os.environ.get("MARITACA_API_KEY")),
+        "MARITACA_BASE_URL": os.environ.get("MARITACA_BASE_URL", "não configurada")
+    })
