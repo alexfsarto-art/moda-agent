@@ -1,4 +1,4 @@
-""import os
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -46,4 +46,3 @@ DEFAULT_HEADERS = {
                   "Chrome/120.0.0.0 Safari/537.36",
     "Accept-Language": "pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7"
 }
-""
