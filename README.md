@@ -4,7 +4,7 @@ Agente Python que busca tendências de moda, coleta produtos de e-commerce e ger
 
 ## 📦 Estrutura
 ```
-moda_agent/
+moda-agent/
 ├── main.py                # Entrypoint — executa o fluxo completo
 ├── .env                   # Variáveis de ambiente (API keys)
 ├── requirements.txt       # Dependências
