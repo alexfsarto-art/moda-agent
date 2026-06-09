@@ -1,4 +1,4 @@
-""import os
+import os
 import sys
 import argparse
 from datetime import datetime
@@ -60,4 +60,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-""
